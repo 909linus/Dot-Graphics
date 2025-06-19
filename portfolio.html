@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<header>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio</title>
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+</header>
+<body>
+    <header>
+        <div class="nav-container">
+            <div class="log">
+                <img src="images/dot logo.png" alt="Dot Logo">
+            </div>
+            <nav>
+                <ul class="navele">
+                  <li><a href="Index.html">Home Page</a></li> 
+                  <li><a href="Services.html">Our Services</a></li> 
+                    <li><a href="portfolio.html">Portfolio</a></li> 
+                  <li><a href="about.html">About Us</a></li> 
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <section class="portfolio_section">
+        <h1>Amongst our designs</h1>
+        <label for="category_select" class="category_label">Filter by Category</label>
+        <select id="category_select" aria-label="Filter Projects">
+            <option value="all">All</option>
+            <option value="posters">Posters</option>
+            <option value="banners">Banners</option>
+            <option value="business cards">Business Cards</option>
+            <option value="logos">Logos</option>
+            <option value="social media posts">Social Media Posts</option>
+        </select>
+        <div class="gallery" id="gallery">
+            <figure class="project posters">
+                <img src="images/Juicy Bites poster.jpg" alt="Juicy Bites Poster"/>
+                <figcaption>An eye-catching poster that can be used to advertise Juicy Bites fruit vendor.</figcaption>
+            </figure>
+            <figure class="project banners">
+                <img src="images/Dot Graphics roll up banner.jpg" alt="Dot Graphics roll up banner" />
+                <figcaption>Dot Graphics Roll up banner</figcaption>
+            </figure>
+            <figure class="project business cards">
+                <img src="images/Tress Haven.jpg" alt="Tress Haven Poster" />
+                <figcaption>Tress Haven Poster Poster</figcaption>
+            </figure>
+            <figure class="project social media posts">
+                <img src="images/Salon Red.jpg" alt="Salon Red" />
+                <figcaption>Vivid Nails Poster. Actualizing the visuals.</figcaption>
+            </figure>
+            <figure class="project logos">
+                <img src="images/dot logo.png" alt="Dot Graphics Logo" />
+                <figcaption>Our Dot Graphics Logo</figcaption>
+            </figure>
+            <figure class="project logos">
+                <img src="images/dot graphics logo.jpg" alt="Dot Graphics Logo" />
+                <figcaption>Dot Grahics Logo on a mock up</figcaption>
+            </figure>
+            <figure class="project posters">
+                <img src="images/Savory poster.jpg" alt="Savory Poster" />
+                <figcaption>Savory catering services.</figcaption>
+            </figure>
+            <figure class="project posters">
+                <img src="images/Explore Kenya.jpg" alt="Explore Kenya" />
+                <figcaption>Lin & Mur Travel Company</figcaption>
+            </figure>
+            <figure class="project banners">
+                <img src="images/Annex Banner.jpg" alt="Annex Banner" />
+                <figcaption>Annex Banner</figcaption>
+            </figure>
+            <figure class="project logos">
+                <img src="images/Skyplex Energy logo.jpg" alt="Skyplex Logo" />
+                <figcaption>A fiction logo for Skyplex energy</figcaption>
+            </figure>
+            <figure class="project posters">
+                <img src="images/Zaina_hike.jpg" alt="Zaina Falss" />
+                <figcaption>A comrades' hike poster</figcaption>
+            </figure>
+            <figure class="project posters">
+                <img src="images/ECCSO_END_SEM.jpg" alt="End of Sem Party" />
+                <figcaption>ECCSO end of semester party poster.</figcaption>
+            </figure>
+            <figure class="project posters">
+                <img src="images/Ent Empire.png" alt="Empire Entertainment" />
+                <figcaption>Empire Entertainment</figcaption>
+            </figure>
+            <figure class="project posters">
+                <img src="images/gat.png" alt="Gatitika Hike Poster" />
+                <figcaption>An at Gatitika falls</figcaption>
+            </figure>
+            <figure class="project posters">
+                <img src="images/naming invitation.jpg" alt="Naming Ceremony" />
+                <figcaption>Naming ceremony invitation.</figcaption>
+            </figure>
+            <figure class="project posters">
+                <img src="images/breakfast.jpg" alt="Breakfast poster" />
+                <figcaption>Sharing moment while having a cup of tea.</figcaption>
+            </figure>
+        </div>
+    </section>
+    <div class="lightbox" id="lightbox">
+        <div class="lightbox_content">
+          <span class="closeBtn" id="closeBtn" aria-label="close lightbox">X</span>
+          <img id="lightbox_img " src="" alt="" />
+          <p id="lightbox_caption"></p> 
+          <a id="whatsapp_btn" target="_blank" class="whatsapp_btn">Message on WhatsApp</a>
+        </div>
+      </div>
+      
+</body>
+</html>

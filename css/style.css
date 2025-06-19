@@ -1,0 +1,262 @@
+.lin img {
+    width: 100%;
+    height: 60vh;
+}
+
+@media(max-width: 768Px) {
+    .lin img {
+        width: 100%;
+        height: 40vh;
+    }
+}
+
+
+.nav-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 15px 5%;
+    background-color: #333;
+}
+
+
+.log img {
+    width: 120px; 
+    height: auto;
+    display: block;
+}
+ 
+
+.navele {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+.navele li {
+    display: inline;
+}
+
+.navele a {
+    text-decoration: none;
+    color: white;
+    font-size: 18px;
+    padding: 10px;
+    transition: 0.3s;
+}
+
+.navele a:hover {
+    background-color: #555;
+    border-radius: 5px;
+}
+
+
+@media (max-width: 768px) {
+    .nav-container {
+        flex-direction: column; 
+        text-align: center;
+    }
+
+    .navele {
+        flex-direction: column;
+        gap: 10px;
+        padding-top: 10px;
+    }
+}
+    
+.contact-button {
+    all: unset;
+    background: green;
+    padding: 1rem;
+    color: white;
+    display: inline-block;
+    cursor: pointer;
+    z-index: 9999;
+  }
+  
+   
+    .service_section {
+        padding: 4rem 2rem;
+        background: #fff;
+        text-align: center;
+
+    }
+
+    .service_section h2 {
+        font-size: 2.5rem;
+        margin-bottom: 2rem;
+        color: #333;
+    }
+
+    .service_container {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, mimax(250px, 1fr));
+        gap: 1.5rem;
+    }
+
+    .service_card {
+        background: #ffa500;
+        padding: 1.5rem;
+        border-radius: 12px;
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .service_card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 16px 30px rgba(0, 0, 0, 0.1);
+    }
+
+    .service_card h3 {
+        font-size: 1.4rem;
+        margin-bottom: 0.5ren;
+        color: #666;
+    }
+
+    .service_list {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+
+    .service_item {
+        margin-bottom: 1rem;
+        position: relative;
+    }
+
+    .service_name {
+        font-weight: bold;
+        color: #000;
+        cursor: pointer;
+        display: block;
+    }
+
+    .service_description {
+        opacity: 0;
+        max-height: 0;
+        transition: opacity 0.3s ease, max-heght 0.3s ease;
+        font-size: 0.95rem;
+        color: #666;
+        padding-left: 1rem;
+        margin-bottom: 0.3rem;
+        overflow: hidden;
+    }
+
+    .service_item:hover .service_description {
+        opacity: 1;
+        max-height: 100px;
+    }
+
+    .portfolio_section {
+        padding: 2rem;
+        max-width: 1000px;
+        margin: auto;
+        text-align: left;
+    }
+
+    .category_label, #category_select {
+        margin: 1rem;
+    }
+
+    .gallery {
+        column-count: 3;
+        column-gap: 2rem;
+        margin-top: 2rem;
+    }
+
+    @media screen and (max-width: 768px){
+        .gallery {
+            column-count: 2;
+        }
+    }
+
+    @media screen and (max-width: 480px){
+        .gallery {
+            column-count: 1;
+        }
+    }
+
+    .project {
+        display: inline-block;
+        width: 100%;
+        margin: 0 0 1rem;
+        break-inside: avoid;
+    }
+
+
+    figure {
+        border:  1px solid #ccc;
+        padding: 10px;
+        background: #fff;
+        border-radius: 8px;
+        cursor: pointer;
+        transition: transform 0.2s ease-in-out;
+    }
+
+    figure:hover {
+        transform: scale(1.02);
+    }
+
+    figure img {
+        width: 100%;
+        height: auto;
+        border-radius: 4px;
+    }
+
+    figcaption {
+        margin-top: 0.5rem;
+        font-size: 0.95rem;
+        color: #444;
+    }
+
+    .lightbox {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0,0,0,0.8);
+        display: none;
+        align-items: center;
+        justify-content: center;
+        z-index: 1000;
+    }
+
+    .lightbox_content {
+        background: #fff;
+        padding: 1rem;
+        border-radius: 10px;
+        text-align: center;
+        max-width: 90%;
+        max-height: 80%;
+    }
+
+    .lightbox_content img {
+        width: 100%;
+        max-height: 400px;
+        object-fit: contain;
+        margin-bottom: 1rem;
+    }
+
+    .closeBtn {
+        font-size: 2rem;
+        color: #333;
+        cursor: pointer;
+        position: absolute;
+        top: 20px;
+        right: 30px;
+    }
+
+    .whatsapp_btn {
+        display: inline-block;
+        margin-top: 10px;
+        background: #25d366;
+        color: white;
+        padding: 10px 20px;
+        border-radius: 6px;
+        text-decoration: none;
+    }
+
+
+
+        
