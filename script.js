@@ -1,3 +1,81 @@
+document.addEventListener("DOMContentLoaded", () => {
+  const galleryItems = document.querySelectorAll(".design");
+  const lightbox = document.getElementById("lightbox");
+  const lightboxImg = document.getElementById("lightbox-img");
+  const lightboxCaption = document.getElementById("lightbox-caption");
+  const closeBtn = document.getElementById("closeBtn");
+  const searchInput = document.getElementById("searchInput");
+  const categoryFilter = document.getElementById("categoryFilter");
+
+  const phone = "254783547300";
+
+  // Setup WhatsApp buttons
+  galleryItems.forEach(item => {
+    const btn = item.querySelector(".whatsapp-btn");
+    const title = item.dataset.title || "Design Inquiry";
+    const msg = `Hi, I'm interested in your design: ${title}`;
+    btn.href = `https://wa.me/${phone}?text=${encodeURIComponent(msg)}`;
+    btn.target = "_blank";
+    btn.rel = "noopener noreferrer";
+  });
+
+  // Open Lightbox on click
+  galleryItems.forEach(item => {
+    item.addEventListener("click", e => {
+      const isButton = e.target.classList.contains("whatsapp-btn") || e.target.classList.contains("download-btn");
+      if (isButton) return;
+
+      const imgSrc = item.dataset.img;
+      const title = item.dataset.title;
+
+      if (imgSrc) {
+        lightboxImg.src = imgSrc;
+        lightboxCaption.textContent = title;
+        lightbox.classList.add("show");
+        lightbox.setAttribute("aria-hidden", "false");
+      }
+    });
+  });
+
+  // Close Lightbox
+  closeBtn.addEventListener("click", () => {
+    lightbox.classList.remove("show");
+    lightbox.setAttribute("aria-hidden", "true");
+    lightboxImg.src = ""; // clear image
+  });
+
+  // Optional: Close lightbox on background click
+  lightbox.addEventListener("click", e => {
+    if (e.target === lightbox) {
+      lightbox.classList.remove("show");
+      lightbox.setAttribute("aria-hidden", "true");
+      lightboxImg.src = "";
+    }
+  });
+
+  // Category Filtering
+  categoryFilter.addEventListener("change", e => {
+    const selected = e.target.value.toLowerCase();
+    galleryItems.forEach(item => {
+      const itemCategory = item.dataset.category.toLowerCase();
+      const show = selected === "all" || itemCategory === selected;
+      item.style.display = show ? "block" : "none";
+    });
+  });
+
+  // Search Filtering with Tags
+  searchInput.addEventListener("input", e => {
+    const keyword = e.target.value.toLowerCase();
+    galleryItems.forEach(item => {
+      const title = (item.dataset.title || "").toLowerCase();
+      const tags = (item.dataset.tags || "").toLowerCase();
+      const match = title.includes(keyword) || tags.includes(keyword);
+      item.style.display = match ? "block" : "none";
+    });
+  });
+});
+
+
 document.addEventListener("DOMContentLoaded", function () {
     fetch('contact.html')
       .then(res => res.text())
@@ -25,50 +103,5 @@ document.addEventListener("DOMContentLoaded", function () {
     window.location.href = "mailto:" + email;
   }
 
-
-  document.addEventListener('DOMContentLoaded', () => {
-    const closeBtn = document.getElementById('closeBtn');
-    const lightbox = document.getElementById('lightbox');
-    const lightboxImg = document.getElementById('lightbox_img');
-    const lightboxCaption = document.getElementById('lightbox_caption');
-    const whatsappBtn = document.getElementById('whatsapp_btn');
-    const galleryItems = document.querySelectorAll('.project');
-  
-    // Lightbox open
-    galleryItems.forEach(item => {
-      item.addEventListener('click', () => {
-        const img = item.querySelector('img');
-        const caption = item.querySelector('figcaption');
-  
-        lightboxImg.src = img.src;
-        lightboxImg.alt = img.alt;
-        lightboxCaption.textContent = caption.textContent;
-  
-        const msg = `Hi, I'm interested in your design: ${img.alt}`;
-        whatsappBtn.href = `https://wa.me/254783547300?text=${encodeURIComponent(msg)}`;
-  
-        lightbox.style.display = 'flex';
-      });
-    });
-  
-    // Lightbox close
-    closeBtn.addEventListener('click', () => {
-      lightbox.style.display = 'none';
-    });
-  
-    // Filter functionality
-    const filterSelect = document.getElementById('category_select');
-    filterSelect.addEventListener('change', (e) => {
-      const selected = e.target.value;
-      galleryItems.forEach(item => {
-        if (selected === 'all' || item.classList.contains(selected)) {
-          item.style.display = 'inline-block';
-        } else {
-          item.style.display = 'none';
-        }
-      });
-    });
-  });
-  console.log
 
   

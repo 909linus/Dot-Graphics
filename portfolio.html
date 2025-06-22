@@ -22,92 +22,249 @@
             </nav>
         </div>
     </header>
-    <section class="portfolio_section">
-        <h1>Amongst our designs</h1>
-        <label for="category_select" class="category_label">Filter by Category</label>
-        <select id="category_select" aria-label="Filter Projects">
+    <header>
+        <h1>Our Projects</h1>
+        <p>Explore our creative designs</p>
+    </header>
+    <section class="controls">
+        <input type="text" id="searchInput" placeholder="search designs..." arial-label="Search Designs" />
+        <select id="categoryFilter" arial-label="Filer by Category">
             <option value="all">All</option>
             <option value="posters">Posters</option>
             <option value="banners">Banners</option>
-            <option value="business cards">Business Cards</option>
             <option value="logos">Logos</option>
-            <option value="social media posts">Social Media Posts</option>
+            <option value="social">Social Media</option>fi
         </select>
-        <div class="gallery" id="gallery">
-            <figure class="project posters">
-                <img src="images/Juicy Bites poster.jpg" alt="Juicy Bites Poster"/>
-                <figcaption>An eye-catching poster that can be used to advertise Juicy Bites fruit vendor.</figcaption>
-            </figure>
-            <figure class="project banners">
-                <img src="images/Dot Graphics roll up banner.jpg" alt="Dot Graphics roll up banner" />
-                <figcaption>Dot Graphics Roll up banner</figcaption>
-            </figure>
-            <figure class="project business cards">
-                <img src="images/Tress Haven.jpg" alt="Tress Haven Poster" />
-                <figcaption>Tress Haven Poster Poster</figcaption>
-            </figure>
-            <figure class="project social media posts">
-                <img src="images/Salon Red.jpg" alt="Salon Red" />
-                <figcaption>Vivid Nails Poster. Actualizing the visuals.</figcaption>
-            </figure>
-            <figure class="project logos">
-                <img src="images/dot logo.png" alt="Dot Graphics Logo" />
-                <figcaption>Our Dot Graphics Logo</figcaption>
-            </figure>
-            <figure class="project logos">
-                <img src="images/dot graphics logo.jpg" alt="Dot Graphics Logo" />
-                <figcaption>Dot Grahics Logo on a mock up</figcaption>
-            </figure>
-            <figure class="project posters">
-                <img src="images/Savory poster.jpg" alt="Savory Poster" />
-                <figcaption>Savory catering services.</figcaption>
-            </figure>
-            <figure class="project posters">
-                <img src="images/Explore Kenya.jpg" alt="Explore Kenya" />
-                <figcaption>Lin & Mur Travel Company</figcaption>
-            </figure>
-            <figure class="project banners">
-                <img src="images/Annex Banner.jpg" alt="Annex Banner" />
-                <figcaption>Annex Banner</figcaption>
-            </figure>
-            <figure class="project logos">
-                <img src="images/Skyplex Energy logo.jpg" alt="Skyplex Logo" />
-                <figcaption>A fiction logo for Skyplex energy</figcaption>
-            </figure>
-            <figure class="project posters">
-                <img src="images/Zaina_hike.jpg" alt="Zaina Falss" />
-                <figcaption>A comrades' hike poster</figcaption>
-            </figure>
-            <figure class="project posters">
-                <img src="images/ECCSO_END_SEM.jpg" alt="End of Sem Party" />
-                <figcaption>ECCSO end of semester party poster.</figcaption>
-            </figure>
-            <figure class="project posters">
-                <img src="images/Ent Empire.png" alt="Empire Entertainment" />
-                <figcaption>Empire Entertainment</figcaption>
-            </figure>
-            <figure class="project posters">
-                <img src="images/gat.png" alt="Gatitika Hike Poster" />
-                <figcaption>An at Gatitika falls</figcaption>
-            </figure>
-            <figure class="project posters">
-                <img src="images/naming invitation.jpg" alt="Naming Ceremony" />
-                <figcaption>Naming ceremony invitation.</figcaption>
-            </figure>
-            <figure class="project posters">
-                <img src="images/breakfast.jpg" alt="Breakfast poster" />
-                <figcaption>Sharing moment while having a cup of tea.</figcaption>
-            </figure>
-        </div>
     </section>
-    <div class="lightbox" id="lightbox">
-        <div class="lightbox_content">
-          <span class="closeBtn" id="closeBtn" aria-label="close lightbox">X</span>
-          <img id="lightbox_img " src="" alt="" />
-          <p id="lightbox_caption"></p> 
-          <a id="whatsapp_btn" target="_blank" class="whatsapp_btn">Message on WhatsApp</a>
+    <main class="gallery" id="gallery">
+        <figure
+         class="design" 
+         data-category="posters"
+         data-title="Juicy Bites Poster"
+         data-img="images/Juicy Bites poster.jpg"
+         data-tags="fruit,food,advertising,flyer">
+         <img src="images/Juicy Bites poster.jpg" alt="Juicy Bites Poster" loading="lazy" />
+         <figcaption>A poster that can be used to advertise a fruit vendor.</figcaption>
+         <div class="actions">
+            <a href="#" class="whatsapp-btn">WhatsApp</a>
+            <a href="images/Juicy Bites poster.jpg" download class="download-btn">Download</a>
+         </div>
+        </figure>
+        <figure
+        class="design"
+        data-category="posters"
+        data-title="Savory poster"
+        data-img="images/Savory poster.jpg"
+        data-tags="food,poster,advertising,catering,flyer">
+        <img src="images/Savory poster.jpg" alt="Savory Sorees" loading="lazy" />
+        <figcaption>A poster of Savory Soirees catering services.</figcaption>
+        <div class="actions">
+            <a href="#" class="whatsapp-btn">WhatsApp</a>
+            <a href="images/Savory poster.jpg" download class="download-btn">Download</a>
         </div>
-      </div>
-      
+    </figure>
+    <figure
+    class="design"
+    data-category="logos"
+    data-title="Dot Graphics Logo"
+    data-img="images/dot logo.png"
+    data-tags="logo,designer,designs,no background">
+    <img src="images/dot logo.png" alt="Dot gaphics logo" loading="lazy" />
+    <figcaption>Our Dot Graphics Logo without background</figcaption>
+    <div class="actions">
+        <a href="#" class="whatsapp-btn">WhatsApp</a>
+        <a href="images/dot logo.png" download class="download-btn">Download</a>
+    </div>
+    </figure>
+    <figure
+    class="design"
+    data-category="banners"
+    data-title="Annex Banner"
+    data-img="images/Annex Banner.jpg"
+    data-tags="banner,advertising,print out banner">
+    <img src="images/Annex Banner.jpg" alt="Annex Banner" loading="lazy" />
+    <figcaption>Annex Banner. A print out banner</figcaption>
+    <div class="actions">
+    <a href="#" class="whatsapp-btn">WhatsApp</a>
+    <a href="images/Annex Banner.jpg" download class="download-btn">Download</a>
+    </div>
+    </figure>
+    <figure
+    class="design"
+    data-category="logos"
+    data-title="Dot graphics logo mockup"
+    data-img="images/dot graphics logo.jpg"
+    data-tags="logos,mockup,dot graphics">
+    <img src="images/dot graphics logo.jpg" alt="Dot graphcs logo" loading="lazy" />
+    <figcaption>Our Dot graphics logo on a MockUp</figcaption>
+    <div class="actions">
+    <a href="#" class="whatsapp-btn">WhatsApp</a>
+    <a href="images/dot graphics logo.jpg" download class="download-btn">Download</a>
+    </div>
+    </figure>
+    <figure
+    class="design"
+    data-category="posters"
+    data-title="ECCSO End of Sem Party"
+    data-img="images/ECCSO_END_SEM.jpg"
+    data-tags="poster,flyer,food,party">
+    <img src="images/ECCSO_END_SEM.jpg" alt="ECCSO_END_SEM party" loading="lazy" />
+    <figcaption>A flyer for ECCSO group in Kirinyaga University for their end of sem party</figcaption>
+    <div class="actions">
+        <a href="#" class="whatsapp-btn">WhatsApp</a>
+        <a href="images/ECCSO_END_SEM.jpg" download class="download-btn">Download</a>
+    </div>
+    </figure>
+    <figure
+    class="design"
+    data-category="posters"
+    data-title="Explore Kenya"
+    data-img="images/"
+    data-tags="posters,flyers,travel,hiking,company,tourism">
+    <img src="images/Explore Kenya.jpg" alt="Explore Kenya" loading="lazy" />
+    <figcaption>A poster for a fiction travel company</figcaption>
+    <div class="actions">
+        <a href="#" class="whatsapp-btn">WhatsApp</a>
+        <a href="images/Explore Kenya.jpg" download class="download-btn">Download</a>
+    </div>
+    </figure>
+    <figure
+    class="design"
+    data-category="posters"
+    data-title="Empire Entertainment"
+    data-img="images/Ent Empire.png"
+    data-tags="poster,flyer,brochures,social media">
+    <img src="images/Ent Empire.png" alt="Empire Entertainment" loading="lazy" />
+    <figcaption>A simple flyer for Empire Entertainment</figcaption>
+    <div class="actions">
+        <a href="#" class="whatsapp-btn">WhatsApp</a>
+        <a href="images/Ent Empire.png" download class="download-btn">Download</a>
+    </div>
+    </figure>
+    <figure
+    class="design"
+    data-category="posters"
+    data-title="Vid Nails"
+    data-img="images/Salon Red.jpg"
+    data-tags="beauty,nails,salon,poster,flyer,social media">
+    <img src="images/Salon Red.jpg" alt="Vivid Nails" loading="lazy" />
+    <figcaption>Vivid Nails poster design</figcaption>
+    <div class="actions">
+        <a href="#" class="whatsapp-btn">WhatsApp</a>
+        <a href="images/Salon Red.jpg" download class="download-btn">Download</a>
+    </div>
+    </figure>
+    <figure
+    class="design"
+    data-category="logos"
+    data-title="SKyPlex Energies"
+    data-img="images/Skyplex Energy logo.jpg"
+    data-tags="logos,energy,petroleum">
+    <img src="images/Skyplex Energy logo.jpg" alt="Skyplex Logo" loading="lazy" />
+    <figcaption>A fiction logo for skyplex energy</figcaption>
+    <div class="actions">
+        <a href="#" class="whatsapp-btn">WhatsApp</a>
+        <a href="images/Skyplex Energy logo.jpg" download class="download-btn">Download</a>
+    </div>
+    </figure>
+    <figure
+    class="design"
+    data-category="posters"
+    data-title="Zaina Falls"
+    data-img="images/Zaina_hike.jpg"
+    data-tags="poster,flyer,hiking,travel,nature">
+    <img src="images/Zaina_hike.jpg" alt="ZAina hike" loading="lazy" />
+    <figcaption>A poster for Kirinyaga University ECCSO group hike to Zaina Falls in Nyeri.</figcaption>
+    <div class="actions">
+        <a href="#" class="whatsapp-btn">WhatsApp</a>
+        <a href="images/Zaina_hike.jpg" download class="download-btn">Download</a>
+    </div>
+    </figure>
+    <figure
+    class="design"
+    data-category="logos"
+    data-title="Greenest Agri-Ventures"
+    data-img="images/Greenst Agri Ventures logo.jpg"
+    data-tags="logo,agriculture,agrovet,enterprise logo">
+    <img src="images/Greenest Agri Ventures Logo.jpg" alt="Greenest Agri-Ventures" loading="lazy" />
+    <figcaption>A logo for greenest agri-ventures enterprise.</figcaption>
+    <div class="actions">
+        <a href="#" class="whatsapp-btn">WhatsApp</a>
+        <a href="images/Greenest Agri Ventures Logo.jpg" download class="download-btn">Download</a>
+    </div>
+    </figure>
+    <figure
+    class="design"
+    data-category="banners"
+    data-title="DOt Graphics roll up banner"
+    data-img="images/Dot Graphics roll up banner.jpg"
+    data-tags="banner,roll up baner, print out banner,mockup banner">
+    <img src="images/Dot Graphics roll up banner.jpg" alt="Roll up banner" loading="lazy" />
+    <figcaption>Dot Graphics roll up banner.</figcaption>
+    <div class="actions">
+        <a href="#" class="whatsapp-btn">WhatsApp</a>
+        <a href="images/Dot Graphics roll up banner.jpg" download class="download-btn">Download</a>
+    </div>
+    </figure>
+    <figure
+    class="design"
+    data-category="posters"
+    data-title="Invitation card"
+    data-img="images/naming invitation.jpg"
+    data-tags="invitation cards,poster,flyers,social media">
+    <img src="images/naming invitation.jpg" alt="Naming Invitation" loading="lazy" />
+    <figcaption>A naming ceremony invitation card</figcaption>
+    <div class="actions">
+        <a href="#" class="whatsapp-btn">WhatsApp</a>
+        <a href="images/naming invitation.jpg" download class="download-btn">Download</a>
+    </div>
+    </figure>
+    <figure
+    class="design"
+    data-category="posters"
+    data-title="Tress Haven Salon"
+    data-img="images/Tress Haven.jpg"
+    data-tags="salon posters,posters,flyers,social media,beauty,salon">
+    <img src="images/Tress Haven.jpg" alt="Tress Haven" loading="lazy" />
+    <figcaption>Tress Haven salon poster</figcaption>
+    <div class="actions">
+        <a href="#" class="whatsapp-btn">WhatsApp</a>
+        <a href="images/Tress Haven.jpg" download class="download-btn">Download</a>
+    </div>
+    </figure>
+    <figure
+    class="design"
+    data-category="banners"
+    data-title="Annex"
+    data-img="images/replacement.png"
+    data-tags="banner, print out banner">
+    <img src="images/replacement.jpg" alt="Annex Replacement" loading="lazy" />
+    <figcaption>Annex banner with a background photo</figcaption>
+    <div class="actions">
+        <a href="#" class="whatsapp-btn">WhatsApp</a>
+        <a href="images/replacement.jpg" download class="download-btn">Download</a>
+    </div>
+    </figure>
+    <figure
+    class="design"
+    data-category="logos"
+    data-title="Greenest Agri-Ventures logo mockup"
+    data-img="images/Logo MockUp - paper Edition.jpg"
+    data-tags="logo, MockUp, agriculture, agrovet, enterprise">
+    <img src="images/Logo Mockup - Paper Edition.jpg" alt="" loading="lazy" />
+    <figcaption>Greenest Agri-Ventures logo on a MockUp</figcaption>
+    <div class="actions">
+        <a href="#" class="whatsapp-btn">WhatsApp</a>
+        <a href="images/Logo Mockup - Paper Edition.jpg" download class="download-btn">Download</a>
+    </div>
+    </figure>
+
+    </main>
+    <div class="lightbox" id="lightbox" aria-hidden="true">
+        <button class="close-btn" id="closeBtn" aria-label="close lightbox">X</button>
+        <img id="lightbox-img" alt="" />
+        <p id="lightbox-caption"></p>
+        </div>
+        <script src="script.js"></script>
 </body>
 </html>
