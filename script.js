@@ -1,30 +1,44 @@
-document.addEventListener("DOMContentLoaded", () => {
-  const galleryItems = document.querySelectorAll(".design");
+
+let index = 0;
+  const texts = document.querySelectorAll(".rotating-text");
+  const rotator = document.querySelector(".text-rotator");
+  let intervalId;
+
+  function showText() {
+    texts.forEach((el) => el.classList.remove("active"));
+    texts[index].classList.add("active");
+    index = (index + 1) % texts.length;
+  }
+
+  function startRotation() {
+    intervalId = setInterval(showText, 10000);
+  }
+
+  function stopRotation() {
+    clearInterval(intervalId);
+  }
+
+  // Start and bind events
+  showText();
+  startRotation();
+
+  rotator.addEventListener("mouseenter", stopRotation);
+  rotator.addEventListener("mouseleave", startRotation);
+
+
+document.addEventListener("DOMContentLoaded", function () {
   const lightbox = document.getElementById("lightbox");
   const lightboxImg = document.getElementById("lightbox-img");
   const lightboxCaption = document.getElementById("lightbox-caption");
-  const closeBtn = document.getElementById("closeBtn");
-  const searchInput = document.getElementById("searchInput");
+  const lightboxClose = document.getElementById("lightbox-close");
   const categoryFilter = document.getElementById("categoryFilter");
+  const galleryItems = document.querySelectorAll(".design");
 
-  const phone = "254783547300";
-
-  // Setup WhatsApp buttons
+  // Open lightbox when an image is clicked
   galleryItems.forEach(item => {
-    const btn = item.querySelector(".whatsapp-btn");
-    const title = item.dataset.title || "Design Inquiry";
-    const msg = `Hi, I'm interested in your design: ${title}`;
-    btn.href = `https://wa.me/${phone}?text=${encodeURIComponent(msg)}`;
-    btn.target = "_blank";
-    btn.rel = "noopener noreferrer";
-  });
+    const img = item.querySelector("img");
 
-  // Open Lightbox on click
-  galleryItems.forEach(item => {
-    item.addEventListener("click", e => {
-      const isButton = e.target.classList.contains("whatsapp-btn") || e.target.classList.contains("download-btn");
-      if (isButton) return;
-
+    img.addEventListener("click", () => {
       const imgSrc = item.dataset.img;
       const title = item.dataset.title;
 
@@ -35,48 +49,56 @@ document.addEventListener("DOMContentLoaded", () => {
         lightbox.setAttribute("aria-hidden", "false");
       }
     });
-  });
 
-  // Close Lightbox
-  closeBtn.addEventListener("click", () => {
-    lightbox.classList.remove("show");
-    lightbox.setAttribute("aria-hidden", "true");
-    lightboxImg.src = ""; // clear image
-  });
+    // Prevent lightbox from opening when buttons are clicked
+    const whatsappBtn = item.querySelector(".whatsapp-btn");
+    const downloadBtn = item.querySelector(".download-btn");
 
-  // Optional: Close lightbox on background click
-  lightbox.addEventListener("click", e => {
-    if (e.target === lightbox) {
-      lightbox.classList.remove("show");
-      lightbox.setAttribute("aria-hidden", "true");
-      lightboxImg.src = "";
+    if (whatsappBtn) {
+      whatsappBtn.addEventListener("click", e => e.stopPropagation());
+    }
+    if (downloadBtn) {
+      downloadBtn.addEventListener("click", e => e.stopPropagation());
     }
   });
 
-  // Category Filtering
-  categoryFilter.addEventListener("change", e => {
-    const selected = e.target.value.toLowerCase();
-    galleryItems.forEach(item => {
-      const itemCategory = item.dataset.category.toLowerCase();
-      const show = selected === "all" || itemCategory === selected;
-      item.style.display = show ? "block" : "none";
-    });
+  // Close lightbox when close button is clicked
+  lightboxClose.addEventListener("click", () => {
+    lightbox.classList.remove("show");
+    lightbox.setAttribute("aria-hidden", "true");
+    lightboxImg.src = "";
+    lightboxCaption.textContent = "";
   });
 
-  // Search Filtering with Tags
-  searchInput.addEventListener("input", e => {
-    const keyword = e.target.value.toLowerCase();
+  // Filter gallery items based on selected category
+  categoryFilter.addEventListener("change", function () {
+    const selectedCategory = this.value;
+
     galleryItems.forEach(item => {
-      const title = (item.dataset.title || "").toLowerCase();
-      const tags = (item.dataset.tags || "").toLowerCase();
-      const match = title.includes(keyword) || tags.includes(keyword);
-      item.style.display = match ? "block" : "none";
+      const itemCategory = item.dataset.category;
+      if (selectedCategory === "all" || selectedCategory === itemCategory) {
+        item.style.display = "block";
+      } else {
+        item.style.display = "none";
+      }
     });
   });
 });
 
 
 document.addEventListener("DOMContentLoaded", function () {
+    fetch('contact.html')
+      .then(res => res.text())
+      .then(data => {
+        document.getElementById('contact-placeholder').innerHTML = data;
+  
+        // Now that the HTML is in the DOM, attach event listeners
+        document.getElementById('whatsapp-button').addEventListener('click', contactWhatsApp);
+        document.getElementById('email-button').addEventListener('click', contactEmail);
+      });
+  });
+  
+  document.addEventListener("DOMContentLoaded", function () {
     fetch('contact.html')
       .then(res => res.text())
       .then(data => {
@@ -102,6 +124,9 @@ document.addEventListener("DOMContentLoaded", function () {
     const email = "lnsmuriuki01@gmail.com"; 
     window.location.href = "mailto:" + email;
   }
+
+
+  
 
 
   
