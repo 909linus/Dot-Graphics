@@ -1,3 +1,61 @@
+document.addEventListener("DOMContentLoaded", function () {
+
+  document.getElementById('search-input').addEventListener('input', filterItems);
+document.getElementById('category-filter').addEventListener('change', filterItems);
+
+function filterItems() {
+  const query = document.getElementById('search-input').value.toLowerCase();
+  const category = document.getElementById('category-filter').value;
+  const items = document.querySelectorAll('.portfolio-item');
+
+  items.forEach(item => {
+    const tags = item.getAttribute('data-tags').toLowerCase();
+    const itemCategory = item.getAttribute('data-category');
+
+    const matchesSearch = tags.includes(query);
+    const matchesCategory = category === 'all' || category === itemCategory;
+
+    item.style.display = (matchesSearch && matchesCategory) ? 'inline-block' : 'none';
+  });
+}
+
+
+  // Lightbox
+  const lightbox = document.getElementById('lightbox');
+  const lightboxImg = document.getElementById('lightbox-img');
+  const portfolioImages = document.querySelectorAll('.portfolio-img');
+  let currentIndex = 0;
+
+  portfolioImages.forEach((img, index) => {
+    img.addEventListener('click', () => {
+      lightbox.style.display = 'block';
+      lightboxImg.src = img.src;
+      currentIndex = index;
+    });
+  });
+
+  document.querySelector('.close').addEventListener('click', () => {
+    lightbox.style.display = 'none';
+  });
+
+  lightbox.addEventListener('click', (e) => {
+    if (e.target === lightbox) lightbox.style.display = 'none';
+  });
+
+  document.getElementById('prevBtn').addEventListener('click', () => navigate(-1));
+  document.getElementById('nextBtn').addEventListener('click', () => navigate(1));
+
+  function navigate(direction) {
+    const images = [...document.querySelectorAll('.portfolio-img')];
+    currentIndex = (currentIndex + direction + images.length) % images.length;
+    lightboxImg.src = images[currentIndex].src;
+  }
+});
+
+
+
+
+
 
 let index = 0;
   const texts = document.querySelectorAll(".rotating-text");
@@ -26,64 +84,7 @@ let index = 0;
   rotator.addEventListener("mouseleave", startRotation);
 
 
-document.addEventListener("DOMContentLoaded", function () {
-  const lightbox = document.getElementById("lightbox");
-  const lightboxImg = document.getElementById("lightbox-img");
-  const lightboxCaption = document.getElementById("lightbox-caption");
-  const lightboxClose = document.getElementById("lightbox-close");
-  const categoryFilter = document.getElementById("categoryFilter");
-  const galleryItems = document.querySelectorAll(".design");
 
-  // Open lightbox when an image is clicked
-  galleryItems.forEach(item => {
-    const img = item.querySelector("img");
-
-    img.addEventListener("click", () => {
-      const imgSrc = item.dataset.img;
-      const title = item.dataset.title;
-
-      if (imgSrc) {
-        lightboxImg.src = imgSrc;
-        lightboxCaption.textContent = title;
-        lightbox.classList.add("show");
-        lightbox.setAttribute("aria-hidden", "false");
-      }
-    });
-
-    // Prevent lightbox from opening when buttons are clicked
-    const whatsappBtn = item.querySelector(".whatsapp-btn");
-    const downloadBtn = item.querySelector(".download-btn");
-
-    if (whatsappBtn) {
-      whatsappBtn.addEventListener("click", e => e.stopPropagation());
-    }
-    if (downloadBtn) {
-      downloadBtn.addEventListener("click", e => e.stopPropagation());
-    }
-  });
-
-  // Close lightbox when close button is clicked
-  lightboxClose.addEventListener("click", () => {
-    lightbox.classList.remove("show");
-    lightbox.setAttribute("aria-hidden", "true");
-    lightboxImg.src = "";
-    lightboxCaption.textContent = "";
-  });
-
-  // Filter gallery items based on selected category
-  categoryFilter.addEventListener("change", function () {
-    const selectedCategory = this.value;
-
-    galleryItems.forEach(item => {
-      const itemCategory = item.dataset.category;
-      if (selectedCategory === "all" || selectedCategory === itemCategory) {
-        item.style.display = "block";
-      } else {
-        item.style.display = "none";
-      }
-    });
-  });
-});
 
 
 document.addEventListener("DOMContentLoaded", function () {
@@ -124,6 +125,10 @@ document.addEventListener("DOMContentLoaded", function () {
     const email = "lnsmuriuki01@gmail.com"; 
     window.location.href = "mailto:" + email;
   }
+
+
+  
+
 
 
   
