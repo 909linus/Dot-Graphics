@@ -1,26 +1,26 @@
 document.addEventListener("DOMContentLoaded", function () {
 
+  // ======= SEARCH & FILTER =======
   document.getElementById('search-input').addEventListener('input', filterItems);
-document.getElementById('category-filter').addEventListener('change', filterItems);
+  document.getElementById('category-filter').addEventListener('change', filterItems);
 
-function filterItems() {
-  const query = document.getElementById('search-input').value.toLowerCase();
-  const category = document.getElementById('category-filter').value;
-  const items = document.querySelectorAll('.portfolio-item');
+  function filterItems() {
+    const query = document.getElementById('search-input').value.toLowerCase();
+    const category = document.getElementById('category-filter').value;
+    const items = document.querySelectorAll('.portfolio-item');
 
-  items.forEach(item => {
-    const tags = item.getAttribute('data-tags').toLowerCase();
-    const itemCategory = item.getAttribute('data-category');
+    items.forEach(item => {
+      const tags = item.getAttribute('data-tags').toLowerCase();
+      const itemCategory = item.getAttribute('data-category');
 
-    const matchesSearch = tags.includes(query);
-    const matchesCategory = category === 'all' || category === itemCategory;
+      const matchesSearch = tags.includes(query);
+      const matchesCategory = category === 'all' || category === itemCategory;
 
-    item.style.display = (matchesSearch && matchesCategory) ? 'inline-block' : 'none';
-  });
-}
+      item.style.display = (matchesSearch && matchesCategory) ? 'inline-block' : 'none';
+    });
+  }
 
-
-  // Lightbox
+  // ======= LIGHTBOX =======
   const lightbox = document.getElementById('lightbox');
   const lightboxImg = document.getElementById('lightbox-img');
   const portfolioImages = document.querySelectorAll('.portfolio-img');
@@ -50,6 +50,29 @@ function filterItems() {
     currentIndex = (currentIndex + direction + images.length) % images.length;
     lightboxImg.src = images[currentIndex].src;
   }
+
+  // ======= WHATSAPP BUTTON FUNCTIONALITY =======
+  const whatsappButtons = document.querySelectorAll('.btn.whatsapp');
+
+  whatsappButtons.forEach(button => {
+    button.addEventListener('click', function (e) {
+      e.preventDefault(); // stop default link behavior
+
+      // find the related design title or image
+      const item = button.closest('.portfolio-item');
+      const img = item.querySelector('.portfolio-img');
+      const designTitle = img.alt; // use the image alt as design title
+
+      // create WhatsApp message
+      const phoneNumber = "254783547300"; 
+      const message = encodeURIComponent(`Hello, I'm interested in your design: ${designTitle}`);
+      const whatsappURL = `https://wa.me/${phoneNumber}?text=${message}`;
+
+      // open WhatsApp chat
+      window.open(whatsappURL, '_blank');
+    });
+  });
+
 });
 
 
